@@ -1,3 +1,10 @@
-console.log("webpack is running");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./src/Components/App/App";
 
-const data = ()=>console.log("successfully running ES6");
+const title = 'My Minimal React Webpack Babel Setup';
+
+ReactDOM.render(
+  <App/>,
+  document.getElementById('app')
+);
