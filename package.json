@@ -1,0 +1,9 @@
+{
+  "name": "TodoApp",
+  "version": "1.0.0",
+  "description": "A todo app that is created using React, Redux and Webpack.",
+  "main": "index.js",
+  "repository": "https://github.com/sujilnt/AdvancedTodo.git",
+  "author": "sujilnt <sujilnt@gmail.com>",
+  "license": "MIT"
+}
