@@ -1,9 +1,19 @@
 {
-  "name": "TodoApp",
-  "version": "1.0.0",
-  "description": "A todo app that is created using React, Redux and Webpack.",
-  "main": "index.js",
-  "repository": "https://github.com/sujilnt/AdvancedTodo.git",
-  "author": "sujilnt <sujilnt@gmail.com>",
-  "license": "MIT"
+	"name": "TodoApp",
+	"version": "1.0.0",
+	"description": "A todo app that is created using React, Redux and Webpack.",
+	"main": "index.js",
+	"repository": "https://github.com/sujilnt/AdvancedTodo.git",
+	"author": "sujilnt <sujilnt@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"build": "webpack"
+	},
+	"devDependencies": {
+		"webpack": "^4.31.0",
+		"webpack-cli": "^3.3.2"
+	},
+	"dependencies": {
+		"path": "^0.12.7"
+	}
 }
