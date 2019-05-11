@@ -1,3 +1,30 @@
+:root {
+	--main-color: #ea2b1f;
+	--secondary-color: #61210f;
+	--tertiary-color: #edae49;
+	--lightBrown: #f9df74;
+	--white: #ffffff;
+}
+body {
+	margin: 0;
+	padding: 0;
+}
 .container {
-	background: blue;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(160deg, #e53935, #ea9c1f);
+	flex: 1 60%;
+	align-items: center;
+}
+.flexBoxInline {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.justifyingContent {
+	justify-content: center;
+}
+.alignIntems {
+	align-items: center;
 }
