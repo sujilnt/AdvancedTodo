@@ -2,6 +2,7 @@ import React, { Component,Fragment } from 'react';
 import Modal from "../Modal/Modal";
 import styled from 'styled-components';
 import AddTask from "../AddTask/AddTask.js";
+import Button from "../Button/Button";
 import './NavBar.css';
 const AddButton = styled.button`
 	background: transparent;
@@ -18,7 +19,7 @@ class Navbar extends Component {
 	}
     addTaskFunc = (e)=>{
 		this.setState(()=>({
-             showModal:true
+       showModal:true
 		}));
 	};
 	onCloseFunc = (e)=>{
@@ -38,7 +39,11 @@ class Navbar extends Component {
 				{ showModal ? <Modal>
 					 <div className="ModalContent">
 					 <AddTask />
-					 <button onClick={this.onCloseFunc}>Add Task</button>
+					 <div className="flexBoxInline alignIntems justifyingContentEnd">
+					     <Button onclickFunc={this.onCloseFunc}>Add Task</Button>
+					     <div>Cancel </div>
+					 </div>
+					 
 					 </div>
 					</Modal>
 					:"" }

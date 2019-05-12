@@ -5,7 +5,7 @@ const Button = (props) => {
 	return (
 		<Fragment>
 			<div className="buttonStyle" onClick={onclickFunc}>
-				{name}
+				{props.children}
 			</div>
 		</Fragment>
 	);
