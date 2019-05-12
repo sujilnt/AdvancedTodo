@@ -11,6 +11,7 @@ class TextArea extends Component{
                     aria-required="true"
                     placeholder={"text area"}
                     name={name}
+                    onChange={onhandleChange}
                 ></textarea>
                 <label htmlFor={name} className="form__label">{labelText}</label>
             </div>

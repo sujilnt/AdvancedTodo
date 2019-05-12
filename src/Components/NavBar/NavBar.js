@@ -1,35 +1,42 @@
 import React, { Component,Fragment } from 'react';
 import Modal from "../Modal/Modal";
-import styled from 'styled-components';
 import AddTask from "../AddTask/AddTask.js";
 import Button from "../Button/Button";
 import './NavBar.css';
-const AddButton = styled.button`
-	background: transparent;
-    border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 1em;
-`;
 
 class Navbar extends Component {
     state={
-		showModal: false
+		showModal: false,
+		taskName: "",
+		taskDescription: ""
 	}
-    addTaskFunc = (e)=>{
-		this.setState(()=>({
-       showModal:true
-		}));
+	 getTaskName = (taskname)=>{
+		 this.setState(()=>({
+          taskName: taskname
+		 }));
+	 };
+
+	 getTaskDesc = (taskdesc)=>{
+			this.setState(()=>({
+				taskDescription:taskdesc
+			}));
+	 };
+
+  addTaskFunc = (e)=>{
+			this.setState(()=>({
+       		showModal:true
+			}));
 	};
+
 	onCloseFunc = (e)=>{
-		console.log("called");
 		this.setState(()=>({
-			showModal:false
+				showModal:false
 		}));
 	}
 	render(){
 		const {showModal} = this.state;
+		const {addTaskFunc} =this.props;
+		console.log("sss", this.state);
 		return (
 			<Fragment>
 			  <div className="navbar">
@@ -38,10 +45,16 @@ class Navbar extends Component {
 				</div>
 				{ showModal ? <Modal>
 					 <div className="ModalContent">
-					 <AddTask />
+					 <AddTask 
+							onChangeInputBoxFunc = {this.getTaskName}
+							onChangeTextAreaFunc={this.getTaskDesc}
+					 />
 					 <div className="flexBoxInline alignIntems justifyingContentEnd">
-					     <Button onclickFunc={this.onCloseFunc}>Add Task</Button>
-					     <div>Cancel </div>
+					     <Button onclickFunc={this.onCloseFunc}>Cancel</Button>
+							 <Button   
+							 background="green"
+							 hoverBackground="blue"
+							 >Add Task </Button>
 					 </div>
 					 
 					 </div>
