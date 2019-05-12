@@ -1,0 +1,28 @@
+.navbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	background: tomato;
+	color: ;
+}
+
+.addButton {
+	background: transparent;
+	border-radius: 3px;
+	border: 2px solid palevioletred;
+	color: palevioletred;
+	margin: 0 1em;
+	padding: 0.25em 1em;
+}
+
+.heading {
+	font-size: 20px;
+}
+
+.ModalContent {
+	background: white;
+	padding: 30px;
+	box-shadow: 0px 0px 3px white;
+	position: relative;
+}
