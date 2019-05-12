@@ -7,9 +7,10 @@ class TodoContainer extends Component {
 		data: todoData
 	}
 	addDataFunction = (e)=>{
-		this.setState((prev,props)=>{
-			data: e
-		});
+		console.log("currentData is ....",e);
+		this.setState((prev,props)=>({
+			data: [...prev.data,e]
+		}));
 	}
 	render(){
 		console.log(this.state.data);

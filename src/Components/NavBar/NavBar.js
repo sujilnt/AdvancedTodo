@@ -3,12 +3,20 @@ import Modal from "../Modal/Modal";
 import AddTask from "../AddTask/AddTask.js";
 import Button from "../Button/Button";
 import './NavBar.css';
-
+import _ from "../../Utils/utils";
 class Navbar extends Component {
     state={
 		showModal: false,
 		taskName: "",
-		taskDescription: ""
+		taskDescription: "",
+	}
+	addTaskAfterValidation = ()=>{
+		const {addTaskFunc} = this.props;
+		const finalobject =  _.mergeStateToObjects(this.state,"taskName","taskDescription");
+		this.setState(()=>({
+			showModal:false
+		}));
+    return addTaskFunc(finalobject);
 	}
 	 getTaskName = (taskname)=>{
 		 this.setState(()=>({
@@ -36,7 +44,6 @@ class Navbar extends Component {
 	render(){
 		const {showModal} = this.state;
 		const {addTaskFunc} =this.props;
-		console.log("sss", this.state);
 		return (
 			<Fragment>
 			  <div className="navbar">
@@ -52,9 +59,10 @@ class Navbar extends Component {
 					 <div className="flexBoxInline alignIntems justifyingContentEnd">
 					     <Button onclickFunc={this.onCloseFunc}>Cancel</Button>
 							 <Button   
-							 background="green"
-							 hoverBackground="blue"
-							 >Add Task </Button>
+							 		background="green"
+							    hoverBackground="blue"
+							    onclickFunc={this.addTaskAfterValidation}
+							    >Add Task </Button>
 					 </div>
 					 
 					 </div>
