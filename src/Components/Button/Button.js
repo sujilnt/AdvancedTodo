@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-
+const defaultcolor = `red`;
 const ButtonStyle = styled.div`
-	background: ${props => props.background || "#ea2b1fbf"};
+	background: ${props => props.background || defaultcolor };
     color: white;
     padding: 7px;
     position: relative;
@@ -14,7 +14,7 @@ const ButtonStyle = styled.div`
     text-align: center;
 	
 	:hover{
-		background: ${props=> props.hoverBackground || "#ea2b1fbf"};
+		background: ${props=> props.hoverBackground || defaultcolor};
 	    box-shadow: 0px 0px 4px #61210f;
 	}
 `;

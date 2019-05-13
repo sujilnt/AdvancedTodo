@@ -21,6 +21,8 @@ const lowerCaseFirstLetter= (letter)=>{
 const geneateID = ()=>{
   return new Date().getTime().toString(36);
 };
+
+
 export default {
     mergeStateToObjects,
     lowerCaseFirstLetter,
