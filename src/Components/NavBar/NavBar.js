@@ -12,7 +12,8 @@ class Navbar extends Component {
 	}
 	addTaskAfterValidation = ()=>{
 		const {addTaskFunc} = this.props;
-		const finalobject =  _.mergeStateToObjects(this.state,"taskName","taskDescription");
+		console.log("check status", this.state)
+		const finalobject =  _.mergeStateToObjects(this.state,"name","description");
 		this.setState(()=>({
 			showModal:false
 		}));

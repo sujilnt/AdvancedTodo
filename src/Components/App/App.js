@@ -4,14 +4,10 @@ import img from '../../../assets/images.png';
 import Button from '../Button/Button.js';
 import Navbar from '../NavBar/NavBar.js';
 import TodoContainer from '../TodoContainer/TodoContainer';
-const handleChange = (e) => {
-	console.log(e.target);
-};
+// App ->Main Component
 const App = () => {
 	return (
-		<div>
-			<TodoContainer/>
-		</div>
+		<div><TodoContainer/></div>
 		);
 };
 export default App;

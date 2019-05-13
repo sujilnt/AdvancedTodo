@@ -76,7 +76,7 @@ class DisplayTasks extends Component{
               {showDescription ? 
                 <div 
                   className="areaContainer"
-                  //onMouseLeave ={this.autoClose}
+                  onMouseLeave ={this.autoClose}
                 >
                 <div  className="flexBoxInline justifyingContentBetween">
                      <span>Description</span> 
@@ -104,7 +104,7 @@ class DisplayTasks extends Component{
                   </div>
                 : "" }
             </div>
-        )
+        );
     }
 }
 

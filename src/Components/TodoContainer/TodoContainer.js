@@ -4,17 +4,31 @@ import Navbar from '../NavBar/NavBar';
 import todoData from "../../data";
 import Section from "../Section/Section.js";
 import DisplayTasks from "../DisplayTasks/DisplayTasks.js"
-
+import _ from "../../Utils/utils.js";
 class TodoContainer extends Component {
 	state={
 		data: todoData,
 		editedData:{},
 		currentTask:{},
 		currentId: ""
-	}
-	clearData = (e)=>{
-     console.log("clear the data");
 	};
+
+	// clearData - > clears the data.
+	clearData = (e)=>{
+		_.setItemInStorage("taskslist", {});
+		this.setState(()=>({
+			data: {}
+		}));
+	};
+
+	componentDidMount(){
+	  const tasklist = _.getItemStorage("taskslist");
+	  tasklist.length >0 ? this.setState(()=>({
+             data: tasklist
+	  })) : {};
+	}
+
+	// Onsave button functionality.
 	onSaveData = (currentData)=>{
 		console.log("current Data",this.state.data);
 		const letcurrentData = this.state.data.map((obj)=>{
@@ -24,19 +38,26 @@ class TodoContainer extends Component {
 					description: currentData.description
 			}) : obj;
 		});
+		_.setItemInStorage("taskslist", letcurrentData);
 		console.log("called inside CurrenrData",letcurrentData);
         this.setState(()=>({
 			data: letcurrentData
-
 		}));
 
 	}
+
+	// add Todo Posts functionality 
 	addDataFunction = (e)=>{
 		console.log("currentData is ....",e);
-		this.setState((prev,props)=>({
+		this.state.data === 0 ? this.setState((prev,props)=>({
+				data: [e]
+		})) 
+		:  this.setState((prev,props)=>({
 			data: [...prev.data,e]
 		}));
 	}
+
+	// generate tasks 
 	generateTasks = ()=>{
 		const listofTasks = [];
 		this.state.data.map((obj)=>{
@@ -71,7 +92,7 @@ class TodoContainer extends Component {
 						completed={3}
 						total={5}
 				 />
-				{this.generateTasks()}
+				{ data.length > 0  ? this.generateTasks() : <div>Todo tasks need to added !</div>}
 				</div>
 			</div>
 		);
