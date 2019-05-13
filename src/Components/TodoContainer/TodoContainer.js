@@ -80,8 +80,8 @@ class TodoContainer extends Component {
 	render() {
 		const { data } = this.state;
 		const total = this.state.data.length;
-		//const incomplete = _.
-		console.log('currentState', this.state.data);
+		const completeNumber = data.filter((obj) => obj.completed === true).length;
+		const incompleted = total - completeNumber;
 		return (
 			<div className="appContainer">
 				<Navbar addTaskFunc={this.addDataFunction} />
@@ -94,7 +94,7 @@ class TodoContainer extends Component {
 						</span>
 					</h2>
 					<hr className="hrstyle" />
-					<Section incomplete={2} completed={3} total={5} />
+					<Section incomplete={2} completed={completeNumber} total={total} />
 					{data.length > 0 ? this.generateTasks() : <div>Todo tasks need to added !</div>}
 				</div>
 			</div>
