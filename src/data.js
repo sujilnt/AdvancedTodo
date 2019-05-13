@@ -1,14 +1,14 @@
 const todoData = [
     {
-        id: 1,
+        id: "1",
         name: "Jogging Time",
         description: "Its time to Jog",
-        checked:true
+        completed:true
     },{
-        id: 2,
+        id: "2",
         name: "Cooking",
         description: "Cooking sdvsv",
-        checked:false
+        completed:false
     }
 ];
 

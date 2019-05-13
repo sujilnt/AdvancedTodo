@@ -19,6 +19,12 @@ class DisplayTasks extends Component{
             showDescription:false
         })); 
     }
+    onsave =(e)=>{
+        console.log("e",this.props, this.state);
+        this.setState(()=>({
+            noEditMode:true
+        }));
+    }
     showCompleted=(e)=>{
         this.setState((prev)=>({
             completed: !prev.completed,
@@ -43,8 +49,13 @@ class DisplayTasks extends Component{
     }
     render(){
         const {showDescription,completed,descriptionValue,noEditMode} = this.state;
+        const {description}=this.props;
+        const tododescription = descriptionValue ? descriptionValue : description ; 
         return(
-            <div style={{overflow: "hidden"}}>
+            <div 
+                style={{overflow: "hidden"}} 
+               onMouseLeave ={this.autoClose}
+            >
               <span 
                   onClick={this.showCompleted} 
                   className="checkButton"  style={completed ? {opacity:1}: {opacity:0.5}}>✔</span>
@@ -57,15 +68,25 @@ class DisplayTasks extends Component{
               {showDescription ? 
                 <div 
                   className="areaContainer"
-                  onMouseLeave ={this.autoClose}
                 >
-                <div>Description <span onClick={this.onEditMode} >✍</span> </div>
+                <div  className="flexBoxInline justifyingContentBetween">
+                     <span>Description</span> 
+                     <span>
+                        <span onClick={this.onEditMode} className="spanstylesRed">Edit✍</span> 
+                        <span 
+                            onClick={this.onsave} 
+                            className="spanstylesGreen" 
+                            style={noEditMode ? 
+                                {pointerEvents:"none", cursor: "not-allowed"}:{}}>Save ✉</span>
+                     </span>
+                
+                </div>
                 <TextArea 
                     onhandleChange={this.handleChange} 
                     defaultValue={this.props.description}
                     value={descriptionValue}
                     noEditMode={noEditMode}
-                  >{this.props.description}</TextArea> 
+                  >{tododescription}</TextArea> 
                   </div>
                 : "" }
             </div>

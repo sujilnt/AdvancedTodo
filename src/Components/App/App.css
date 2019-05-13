@@ -32,3 +32,6 @@ body {
 .justifyingContentEnd {
 	justify-content: flex-end;
 }
+.justifyingContentBetween {
+	justify-content: space-between;
+}
