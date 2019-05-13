@@ -19,8 +19,16 @@ class DisplayTasks extends Component{
             showDescription:false
         })); 
     }
-    onsave =(e)=>{
+    onsave = (e)=>{
+        const {id,description,name} = this.props;
+        const {descriptionValue,completed} =this.state;
         console.log("e",this.props, this.state);
+        this.props.onSave({
+            id,
+            description: descriptionValue,
+            name,
+            completed: completed
+        });
         this.setState(()=>({
             noEditMode:true
         }));
@@ -50,11 +58,11 @@ class DisplayTasks extends Component{
     render(){
         const {showDescription,completed,descriptionValue,noEditMode} = this.state;
         const {description}=this.props;
-        const tododescription = descriptionValue ? descriptionValue : description ; 
+        const tododescription = descriptionValue !== "" ? descriptionValue : description ; 
+        console.log("todo description",tododescription);
         return(
             <div 
-                style={{overflow: "hidden"}} 
-               onMouseLeave ={this.autoClose}
+                style={{overflow: "hidden"}}   
             >
               <span 
                   onClick={this.showCompleted} 
@@ -68,13 +76,19 @@ class DisplayTasks extends Component{
               {showDescription ? 
                 <div 
                   className="areaContainer"
+                  //onMouseLeave ={this.autoClose}
                 >
                 <div  className="flexBoxInline justifyingContentBetween">
                      <span>Description</span> 
                      <span>
-                        <span onClick={this.onEditMode} className="spanstylesRed">Edit✍</span> 
+                        <span 
+                             onClick={this.onEditMode} 
+                             className="spanstylesRed"
+                             key={"EditMode"}
+                             >Edit✍</span> 
                         <span 
                             onClick={this.onsave} 
+                            key={"saveMode"}
                             className="spanstylesGreen" 
                             style={noEditMode ? 
                                 {pointerEvents:"none", cursor: "not-allowed"}:{}}>Save ✉</span>
