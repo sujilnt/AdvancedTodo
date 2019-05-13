@@ -2,11 +2,13 @@ const todoData = [
     {
         id: 1,
         name: "Jogging Time",
-        description: "Its time to Jog"
+        description: "Its time to Jog",
+        checked:true
     },{
         id: 2,
         name: "Cooking",
-        description: "Cooking sdvsv"
+        description: "Cooking sdvsv",
+        checked:false
     }
 ];
 

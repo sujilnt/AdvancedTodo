@@ -1,0 +1,27 @@
+.taskHeader {
+	width: 97.2%;
+	padding: 10px;
+	margin-left: 55px;
+	margin-bottom: 5px;
+}
+
+.taskHeader,
+.checkButton {
+	background: #b1ea1f;
+	color: white;
+	cursor: pointer;
+	transition: opacity 1.5s;
+}
+
+.checkButton {
+	z-index: 2;
+	position: absolute;
+	margin: 0px 0px;
+	padding: 9px 20px;
+}
+
+.areaContainer {
+	padding: 11px 25px;
+	cursor: pointer;
+	animation: fadeIN 1.5s;
+}
