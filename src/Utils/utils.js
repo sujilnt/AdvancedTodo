@@ -28,7 +28,7 @@ const setItemInStorage = (itemName, item) => {
 };
 
 const getItemStorage = (itemName) => {
-	return Promise.resolve().then(() => JSON.parse(localStorage.getItem(itemName)));
+	return JSON.parse(localStorage.getItem(itemName));
 };
 export default {
 	mergeStateToObjects,

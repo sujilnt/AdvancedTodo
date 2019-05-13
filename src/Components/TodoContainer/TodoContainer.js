@@ -7,7 +7,7 @@ import DisplayTasks from '../DisplayTasks/DisplayTasks.js';
 import _ from '../../Utils/utils.js';
 class TodoContainer extends Component {
 	state = {
-		data: {},
+		data: [],
 		editedData: {},
 		currentTask: {},
 		currentId: ''
@@ -17,13 +17,17 @@ class TodoContainer extends Component {
 	clearData = (e) => {
 		_.setItemInStorage('taskslist', {});
 		this.setState(() => ({
-			data: {}
+			data: []
 		}));
 	};
 
 	componentDidMount() {
 		const tasklist = _.getItemStorage('taskslist');
-		console.log('t', tasklist);
+		this.state.data.length === 0
+			? this.setState(() => ({
+					data: [ ...tasklist ]
+				}))
+			: '';
 	}
 
 	// Onsave button functionality.
@@ -48,6 +52,7 @@ class TodoContainer extends Component {
 	// add Todo Posts functionality
 	addDataFunction = (e) => {
 		console.log('currentData is ....', e);
+		_.setItemInStorage('taskslist', [ ...this.state.data, e ]);
 		this.setState((prev) => {
 			return this.state.data !== undefined && prev.data.length > 0
 				? { data: [ ...prev.data, e ] }
