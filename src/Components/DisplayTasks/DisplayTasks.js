@@ -6,19 +6,19 @@ class DisplayTasks extends Component{
      showDescription: false,
      completed:false,
      descriptionValue: "",
-     noEditMode: true
+     noEditMode: true,
+     id: ""
     };
     showDescription=(e)=>{
-        this.setState((prev)=>({
-            showDescription:!prev.showDescription
-        }));
-    }
+        const {id} = this.state;
+        this.props.showDescription(e,this.state.id);
+    };
     autoClose =(e)=>{
         console.log("called");
         this.setState((prev)=>({
             showDescription:false
-        })); 
-    }
+        }));
+    };
     onsave = (e)=>{
         const {id,description,name} = this.props;
         const {descriptionValue,completed} =this.state;
@@ -32,75 +32,77 @@ class DisplayTasks extends Component{
         this.setState(()=>({
             noEditMode:true
         }));
-    }
+    };
     showCompleted=(e)=>{
         this.setState((prev)=>({
             completed: !prev.completed,
             showDescription:false
         }));
-    }
+    };
     handleChange = (e)=>{
         const value = e.target.value;
         this.setState((prev)=>({
             descriptionValue: value
         }));
-    }
+    };
     onEditMode = (e)=>{
         this.setState((prev)=>({
             noEditMode: !prev.noEditMode
         }));
-    }
+    };
     componentDidMount(){
         this.setState(()=>({
-            descriptionValue: this.props.description
+            descriptionValue: this.props.description,
+            id: this.props.id
         }));
-    }
+    };
     render(){
         const {showDescription,completed,descriptionValue,noEditMode} = this.state;
         const {description}=this.props;
-        const tododescription = descriptionValue !== "" ? descriptionValue : description ; 
+        const tododescription = descriptionValue !== "" ? descriptionValue : description ;
         console.log("todo description",tododescription);
         return(
-            <div 
-                style={{overflow: "hidden"}}   
+            <div
+                style={{overflow: "hidden"}}
+                onClick={this.showDescription}
             >
-              <span 
-                  onClick={this.showCompleted} 
+              <span
+                  onClick={this.showCompleted}
                   className="checkButton"  style={completed ? {opacity:1}: {opacity:0.5}}>✔</span>
-              <header 
-                  onClick={this.showDescription}  
-                   style={completed ? {opacity:"0.5"}: {opacity:1}} 
+              <header
+                  onClick={this.showDescription}
+                   style={completed ? {opacity:"0.5"}: {opacity:1}}
                    className="taskHeader">
               {this.props.name}
               </header>
-              {showDescription ? 
-                <div 
+              {this.props.show ?
+                <div
                   className="areaContainer"
                   onMouseLeave ={this.autoClose}
                 >
                 <div  className="flexBoxInline justifyingContentBetween">
-                     <span>Description</span> 
+                     <span>Description</span>
                      <span>
-                        <span 
-                             onClick={this.onEditMode} 
+                        <span
+                             onClick={this.onEditMode}
                              className="spanstylesRed"
                              key={"EditMode"}
-                             >Edit✍</span> 
-                        <span 
-                            onClick={this.onsave} 
+                             >Edit✍</span>
+                        <span
+                            onClick={this.onsave}
                             key={"saveMode"}
-                            className="spanstylesGreen" 
-                            style={noEditMode ? 
+                            className="spanstylesGreen"
+                            style={noEditMode ?
                                 {pointerEvents:"none", cursor: "not-allowed"}:{}}>Save ✉</span>
                      </span>
                 
                 </div>
-                <TextArea 
-                    onhandleChange={this.handleChange} 
+                <TextArea
+                    onhandleChange={this.handleChange}
                     defaultValue={this.props.description}
                     value={descriptionValue}
                     noEditMode={noEditMode}
-                  >{tododescription}</TextArea> 
+                  >{tododescription}</TextArea>
                   </div>
                 : "" }
             </div>

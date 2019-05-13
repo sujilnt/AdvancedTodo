@@ -9,9 +9,17 @@ class TodoContainer extends Component {
 		data: [],
 		editedData: {},
 		currentTask: {},
-		currentId: ''
+		currentId: '',
+		show:false
 	};
-
+	showDescription =(e,id)=>{
+	  	if(id){
+		    this.setState((prev)=>({
+			    currentId: id,
+			    show:!prev.show
+		    }));
+	    }
+	};
 	// clearData - > clears the data.
 	clearData = (e) => {
 		_.setItemInStorage('taskslist', []);
@@ -60,6 +68,7 @@ class TodoContainer extends Component {
 
 	// generate tasks
 	generateTasks = () => {
+		const {currentId} =this.state;
 		const listofTasks = [];
 		this.state.data.map((obj) => {
 			listofTasks.push(
@@ -70,6 +79,8 @@ class TodoContainer extends Component {
 					data={obj}
 					id={obj.id}
 					onSave={this.onSaveData}
+					show={currentId === obj.id}
+					showDescription={this.showDescription}
 				/>
 			);
 		});
