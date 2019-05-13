@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './TodoContainer.css';
 import Navbar from '../NavBar/NavBar';
-import todoData from '../../data';
 import Section from '../Section/Section.js';
 import DisplayTasks from '../DisplayTasks/DisplayTasks.js';
 import _ from '../../Utils/utils.js';
@@ -93,7 +92,7 @@ class TodoContainer extends Component {
 					</h2>
 					<hr className="hrstyle" />
 					<Section incomplete={incompleted} completed={completeNumber} total={total} />
-					{data ? this.generateTasks() : <div>Todo tasks need to added !</div>}
+					{data.length !== 0 ? this.generateTasks() : <div>Todo tasks need to added !</div>}
 				</div>
 			</div>
 		);
