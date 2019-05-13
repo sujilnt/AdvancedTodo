@@ -15,7 +15,7 @@ class TodoContainer extends Component {
 
 	// clearData - > clears the data.
 	clearData = (e) => {
-		_.setItemInStorage('taskslist', {});
+		_.setItemInStorage('taskslist', []);
 		this.setState(() => ({
 			data: []
 		}));
@@ -25,7 +25,7 @@ class TodoContainer extends Component {
 		const tasklist = _.getItemStorage('taskslist');
 		this.state.data.length === 0
 			? this.setState(() => ({
-					data: [ ...tasklist ]
+					data: tasklist
 				}))
 			: '';
 	}
@@ -51,7 +51,6 @@ class TodoContainer extends Component {
 
 	// add Todo Posts functionality
 	addDataFunction = (e) => {
-		console.log('currentData is ....', e);
 		_.setItemInStorage('taskslist', [ ...this.state.data, e ]);
 		this.setState((prev) => {
 			return this.state.data !== undefined && prev.data.length > 0
@@ -68,7 +67,7 @@ class TodoContainer extends Component {
 				<DisplayTasks
 					name={obj.name}
 					description={obj.description}
-					key={obj.key}
+					key={obj.id}
 					data={obj}
 					id={obj.id}
 					onSave={this.onSaveData}
@@ -79,23 +78,22 @@ class TodoContainer extends Component {
 	};
 	render() {
 		const { data } = this.state;
-		const total = this.state.data.length;
-		const completeNumber = data.filter((obj) => obj.completed === true).length;
+		const total = data ? data.length : 0;
+		const completeNumber = data ? data.filter((obj) => obj.completed === true).length : 0;
 		const incompleted = total - completeNumber;
 		return (
 			<div className="appContainer">
 				<Navbar addTaskFunc={this.addDataFunction} />
 				<div className="todoBoard">
 					<h2 className="h2style">
-						{' '}
 						List of Todo Tasks...
 						<span className="clearTasks" onClick={this.clearData}>
 							clear tasks
 						</span>
 					</h2>
 					<hr className="hrstyle" />
-					<Section incomplete={2} completed={completeNumber} total={total} />
-					{data.length > 0 ? this.generateTasks() : <div>Todo tasks need to added !</div>}
+					<Section incomplete={incompleted} completed={completeNumber} total={total} />
+					{data ? this.generateTasks() : <div>Todo tasks need to added !</div>}
 				</div>
 			</div>
 		);
