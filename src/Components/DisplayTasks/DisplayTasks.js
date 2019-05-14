@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import "./DipalayTasks.css";
 import TextArea from "../TextArea/TextArea.js";
+import PropTypes from 'prop-types';
+
 class DisplayTasks extends Component{
     state={
      showDescription: false,
@@ -105,4 +107,13 @@ class DisplayTasks extends Component{
     }
 }
 
+DisplayTasks.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    show : PropTypes.bool.isRequired,
+    completed : PropTypes.bool.isRequired,
+    onSave: PropTypes.func.isRequired,
+    showDescription: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired
+};
 export default DisplayTasks;
