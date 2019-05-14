@@ -6,7 +6,7 @@ const unedit = {
 class TextArea extends Component{
     render(){
         const {name,labelText,onhandleChange ,defaultValue,noEditMode}=this.props;
-         return defaultValue ?
+         return noEditMode ?
          <div className="form__group">
             <label htmlFor={name} className="form__label">{labelText}</label>
              <div>{defaultValue}</div>
@@ -21,6 +21,7 @@ class TextArea extends Component{
                 placeholder={"text area"}
                 name={name}
                 onChange={onhandleChange}
+                defaultValue={defaultValue}
             >
             
             </textarea>
