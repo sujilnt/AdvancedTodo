@@ -47,7 +47,6 @@ class Navbar extends Component {
 	};
 	render(){
 		const {showModal} = this.state;
-		const {addTaskFunc} =this.props;
 		return (
 			<Fragment>
 			  <div className="navbar">

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React,{Component} from "react";
 
 class TextArea extends Component{
@@ -28,3 +29,11 @@ class TextArea extends Component{
 }
 
 export default TextArea;
+
+TextArea.propTypes = {
+    name: PropTypes.string.isRequired,
+    labelText: PropTypes.string.isRequired,
+    onhandleChange: PropTypes.func.isRequired,
+    noEditMode: PropTypes.bool,
+    defaultValue: PropTypes.string,
+};
