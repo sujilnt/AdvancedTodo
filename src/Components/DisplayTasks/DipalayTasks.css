@@ -49,3 +49,17 @@
 .spanstylesGreen:hover {
 	background: #6f9217;
 }
+
+.cssbeautify{
+	text-decoration: underline;
+	font-weight: 400;
+}
+
+.captialize{
+	text-transform: capitalize;
+}
+
+.textoverflow{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

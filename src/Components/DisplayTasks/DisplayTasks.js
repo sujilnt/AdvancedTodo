@@ -71,14 +71,14 @@ class DisplayTasks extends Component{
                   onClick={this.showDescription}
                    style={completed ? {opacity:"0.5"}: {opacity:1}}
                    className="taskHeader">
-                  <div>{this.props.name}</div>
+                  <div className="captialize textoverflow" style={{width: "90%"}}>{this.props.name}</div>
               </header>
               {this.props.show ?
                 <div
                   className="areaContainer"
                 >
                 <div  className="flexBoxInline justifyingContentBetween">
-                     <span>Description</span>
+                     <span className="cssbeautify">Description</span>
                      <span>
                         <span
                              onClick={this.onEditMode}
