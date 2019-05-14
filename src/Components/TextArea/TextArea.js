@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
 import React,{Component} from "react";
 
-class TextArea extends Component{
-    render(){
-        const {name,labelText,onhandleChange ,defaultValue,noEditMode}=this.props;
-         return noEditMode ?
-         <div className="form__group">
+const TextArea =(props)=>{
+    const {name,labelText,onhandleChange ,defaultValue,noEditMode}=props;
+    return noEditMode ?
+        (<div className="form__group">
             <label htmlFor={name} className="form__label">{labelText}</label>
-             <div>{defaultValue}</div>
-        </div>
-         :
-         <div className="form__group">
+            <div>{defaultValue}</div>
+        </div>)
+        :
+        (<div className="form__group">
             <textarea
                 className="form__field"
                 rows="4"
@@ -24,9 +23,8 @@ class TextArea extends Component{
             
             </textarea>
             <label htmlFor={name} className="form__label">{labelText}</label>
-        </div>;
-    }
-}
+        </div>);
+};
 
 export default TextArea;
 
