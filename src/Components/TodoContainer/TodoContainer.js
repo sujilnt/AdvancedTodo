@@ -4,6 +4,7 @@ import Navbar from '../NavBar/NavBar';
 import Section from '../Section/Section.js';
 import DisplayTasks from '../DisplayTasks/DisplayTasks.js';
 import _ from '../../Utils/utils.js';
+
 class TodoContainer extends Component {
 	state = {
 		data: [],
