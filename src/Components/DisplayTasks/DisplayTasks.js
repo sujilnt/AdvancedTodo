@@ -11,12 +11,14 @@ class DisplayTasks extends Component{
      noEditMode: true,
      id: ""
     };
+    // showDescription -> shoe Description display the description.
     showDescription=(e)=>{
         const {id} = this.state;
         this.props.showDescription(e,this.state.id);
     };
+    // onsave -> save the data and writing to localstorage.
     onsave = (e)=>{
-        const {id,description,name} = this.props;
+        const {id,name} = this.props;
         const {descriptionValue,completed} =this.state;
         console.log("e",this.props, this.state);
         this.props.onSave({
@@ -29,6 +31,7 @@ class DisplayTasks extends Component{
             noEditMode:true
         }));
     };
+    // showCompleted -> completing the tasks indication.
     showCompleted=(e)=>{
         e.stopPropagation();
         this.setState((prev)=>({
@@ -37,18 +40,22 @@ class DisplayTasks extends Component{
         this.props.saveShowCompleted(e,this.state.id);
         
     };
+    // handleChange -> saving the description Value.
     handleChange = (e)=>{
         const value = e.target.value;
         this.setState((prev)=>({
             descriptionValue: value
         }));
     };
+    // onEditMode -> toggling Edit Mode.
     onEditMode = (e)=>{
-        this.setState((prev)=>({
-            noEditMode: !prev.noEditMode
+        this.setState(()=>({
+            noEditMode: false
         }));
     };
+   
     componentDidMount(){
+        // updating the  state {id,completed,description } from the Props
         this.setState(()=>({
             descriptionValue: this.props.description,
             id: this.props.id,
