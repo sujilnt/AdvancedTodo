@@ -12,6 +12,7 @@ class TodoContainer extends Component {
 		currentId: '',
 		show:false
 	};
+	// saving completed Tasks
 	saveShowCompleted =(e,id)=>{
 		console.log(id);
 		const data = this.state.data.map((obj)=>{
@@ -29,6 +30,7 @@ class TodoContainer extends Component {
 			data: [...data]
 		}));
 	};
+	// show Description Functionality
 	showDescription =(e,id)=>{
 	  	if(id){
 		    this.setState((prev)=>({

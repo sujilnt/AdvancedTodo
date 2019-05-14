@@ -11,6 +11,7 @@ class Navbar extends Component {
 		taskDescription: "",
 	    completed:false
 	};
+    // merging the state into object like exm{name,description , creationDate, etc}
 	addTaskAfterValidation = ()=>{
 		const {addTaskFunc} = this.props;
 		console.log("check status", this.state)
@@ -19,25 +20,26 @@ class Navbar extends Component {
 			showModal:false
 		}));
     return addTaskFunc(finalobject);
-	}
+	};
+	// Setting the taskName through state change
 	 getTaskName = (taskname)=>{
 		 this.setState(()=>({
           taskName: taskname
 		 }));
 	 };
-
+	// Setting the getTaskDesc through state change
 	 getTaskDesc = (taskdesc)=>{
 			this.setState(()=>({
 				taskDescription:taskdesc
 			}));
 	 };
-
+  // add task buttton functionality by clicking model opens .
   addTaskFunc = (e)=>{
 			this.setState(()=>({
        		showModal:true
 			}));
 	};
-
+   // close function of the modal
 	onCloseFunc = (e)=>{
 		this.setState(()=>({
 				showModal:false
