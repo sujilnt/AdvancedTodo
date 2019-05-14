@@ -116,7 +116,7 @@ class TodoContainer extends Component {
 					</h2>
 					<hr className="hrstyle" />
 					<Section incomplete={incompleted} completed={completeNumber} total={total} />
-					{data.length !== 0 ? this.generateTasks() : <div>Todo tasks need to added !</div>}
+					{data.length !== 0 ? this.generateTasks() : <div>Todo tasks need to added ☺ !</div>}
 				</div>
 			</div>
 		);
