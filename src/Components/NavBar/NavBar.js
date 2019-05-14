@@ -42,7 +42,7 @@ class Navbar extends Component {
 		this.setState(()=>({
 				showModal:false
 		}));
-	}
+	};
 	render(){
 		const {showModal} = this.state;
 		const {addTaskFunc} =this.props;

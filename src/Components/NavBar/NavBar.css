@@ -16,6 +16,13 @@
 	color: palevioletred;
 	margin: 0 1em;
 	padding: 0.25em 1em;
+	cursor:pointer;
+	transition:background 1s
+}
+
+.addButton:hover{
+	background: palevioletred;
+	color:white;
 }
 
 .heading {
@@ -29,7 +36,7 @@
 	position: relative;
 	margin: 0px 15%;
 	border-radius: 2px;
-	animation: fadeIN 2s;
+	animation: fadeIN 1.5s;
 }
 
 .navbar > div {
