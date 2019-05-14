@@ -29,9 +29,9 @@ class DisplayTasks extends Component{
     };
     showCompleted=(e)=>{
         e.stopPropagation();
-        this.setState({
-            completed: true,
-        });
+        this.setState((prev)=>({
+            completed: !prev.completed,
+        }));
         this.props.saveShowCompleted(e,this.state.id);
         
     };

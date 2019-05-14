@@ -13,8 +13,13 @@ class TodoContainer extends Component {
 		show:false
 	};
 	saveShowCompleted =(e,id)=>{
+		console.log(id);
 		const data = this.state.data.map((obj)=>{
-			return obj.id === id ? {...obj,completed: true} : obj ;
+			const value = obj.completed=== true ? false: true;
+			return {
+				...obj,
+				completed: value
+			}
 		});
 		_.setItemInStorage('taskslist', [...data]);
 	};
