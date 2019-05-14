@@ -13,12 +13,6 @@ class DisplayTasks extends Component{
         const {id} = this.state;
         this.props.showDescription(e,this.state.id);
     };
-    autoClose =(e)=>{
-        console.log("called");
-        this.setState((prev)=>({
-            showDescription:false
-        }));
-    };
     onsave = (e)=>{
         const {id,description,name} = this.props;
         const {descriptionValue,completed} =this.state;
@@ -36,7 +30,6 @@ class DisplayTasks extends Component{
     showCompleted=(e)=>{
         this.setState((prev)=>({
             completed: !prev.completed,
-            showDescription:false
         }));
     };
     handleChange = (e)=>{
@@ -64,21 +57,19 @@ class DisplayTasks extends Component{
         return(
             <div
                 style={{overflow: "hidden"}}
-                onClick={this.showDescription}
             >
-              <span
+              <div
                   onClick={this.showCompleted}
-                  className="checkButton"  style={completed ? {opacity:1}: {opacity:0.5}}>✔</span>
+                  className="checkButton"  style={completed ? {opacity:1}: {opacity:0.5}}>✔</div>
               <header
                   onClick={this.showDescription}
                    style={completed ? {opacity:"0.5"}: {opacity:1}}
                    className="taskHeader">
-              {this.props.name}
+                  <div>{this.props.name}</div>
               </header>
               {this.props.show ?
                 <div
                   className="areaContainer"
-                  onMouseLeave ={this.autoClose}
                 >
                 <div  className="flexBoxInline justifyingContentBetween">
                      <span>Description</span>
