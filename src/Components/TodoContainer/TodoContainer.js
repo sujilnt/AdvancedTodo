@@ -15,10 +15,13 @@ class TodoContainer extends Component {
 	saveShowCompleted =(e,id)=>{
 		console.log(id);
 		const data = this.state.data.map((obj)=>{
-			const value = obj.completed=== true ? false: true;
-			return {
-				...obj,
-				completed: value
+			if(id=== obj.id){
+				return {
+					...obj,
+					completed: !obj.completed
+				};
+			}else{
+				return obj;
 			}
 		});
 		_.setItemInStorage('taskslist', [...data]);
