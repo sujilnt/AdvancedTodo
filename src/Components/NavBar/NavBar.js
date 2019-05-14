@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import React, { Component,Fragment } from 'react';
 import Modal from "../Modal/Modal";
 import AddTask from "../AddTask/AddTask.js";
 import Button from "../Button/Button";
-import './NavBar.css';
 import _ from "../../Utils/utils";
+import './NavBar.css';
 class Navbar extends Component {
     state={
 		showModal: false,
@@ -14,7 +15,6 @@ class Navbar extends Component {
     // merging the state into object like exm{name,description , creationDate, etc}
 	addTaskAfterValidation = ()=>{
 		const {addTaskFunc} = this.props;
-		console.log("check status", this.state)
 		const finalobject =  _.mergeStateToObjects(this.state,"name","description");
 		this.setState(()=>({
 			showModal:false
@@ -77,3 +77,6 @@ class Navbar extends Component {
 	}
 };
 export default Navbar;
+Navbar.propTypes = {
+	addTaskFunc: PropTypes.func.isRequired,
+};

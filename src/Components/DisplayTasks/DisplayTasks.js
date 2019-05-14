@@ -56,10 +56,9 @@ class DisplayTasks extends Component{
         }));
     };
     render(){
-        const {showDescription,completed,descriptionValue,noEditMode} = this.state;
+        const {completed,descriptionValue,noEditMode} = this.state;
         const {description}=this.props;
         const tododescription = descriptionValue !== "" ? descriptionValue : description ;
-        console.log("todo description",this.state);
         return(
             <div
                 style={{overflow: "hidden"}}

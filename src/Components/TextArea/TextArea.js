@@ -1,8 +1,5 @@
 import React,{Component} from "react";
-const unedit = {
-    borderBottom: "none",
-    pointerEvents:"none"
-}
+
 class TextArea extends Component{
     render(){
         const {name,labelText,onhandleChange ,defaultValue,noEditMode}=this.props;

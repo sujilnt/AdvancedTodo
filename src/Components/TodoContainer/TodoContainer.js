@@ -46,7 +46,7 @@ class TodoContainer extends Component {
 			data: []
 		}));
 	};
-
+    // updating data from the local storage
 	componentDidMount() {
 		const tasklist = _.getItemStorage('taskslist');
 		this.state.data.length === 0
@@ -75,7 +75,7 @@ class TodoContainer extends Component {
 		}));
 	};
 
-	// add Todo Posts functionality
+	//addTodo Posts functionality
 	addDataFunction = (e) => {
 		_.setItemInStorage('taskslist', [ ...this.state.data, e ]);
 		this.setState((prev) => {
