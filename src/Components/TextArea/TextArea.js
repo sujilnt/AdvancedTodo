@@ -29,8 +29,8 @@ const TextArea =(props)=>{
 export default TextArea;
 
 TextArea.propTypes = {
-    name: PropTypes.string.isRequired,
-    labelText: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    labelText: PropTypes.string,
     onhandleChange: PropTypes.func.isRequired,
     noEditMode: PropTypes.bool,
     defaultValue: PropTypes.string,
