@@ -25,6 +25,9 @@ class TodoContainer extends Component {
 			}
 		});
 		_.setItemInStorage('taskslist', [...data]);
+		this.setState(()=>({
+			data: [...data]
+		}));
 	};
 	showDescription =(e,id)=>{
 	  	if(id){
