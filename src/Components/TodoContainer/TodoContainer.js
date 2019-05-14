@@ -12,6 +12,12 @@ class TodoContainer extends Component {
 		currentId: '',
 		show:false
 	};
+	saveShowCompleted =(e,id)=>{
+		const data = this.state.data.map((obj)=>{
+			return obj.id === id ? {...obj,completed: true} : obj ;
+		});
+		_.setItemInStorage('taskslist', [...data]);
+	};
 	showDescription =(e,id)=>{
 	  	if(id){
 		    this.setState((prev)=>({
@@ -81,6 +87,8 @@ class TodoContainer extends Component {
 					onSave={this.onSaveData}
 					show={currentId === obj.id}
 					showDescription={this.showDescription}
+					completed={obj.completed}
+					saveShowCompleted={this.saveShowCompleted}
 				/>
 			);
 		});

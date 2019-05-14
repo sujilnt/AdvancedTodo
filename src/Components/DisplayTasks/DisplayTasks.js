@@ -4,7 +4,7 @@ import TextArea from "../TextArea/TextArea.js";
 class DisplayTasks extends Component{
     state={
      showDescription: false,
-     completed:false,
+      completed:false,
      descriptionValue: "",
      noEditMode: true,
      id: ""
@@ -28,9 +28,12 @@ class DisplayTasks extends Component{
         }));
     };
     showCompleted=(e)=>{
-        this.setState((prev)=>({
-            completed: !prev.completed,
-        }));
+        e.stopPropagation();
+        this.setState({
+            completed: true,
+        });
+        this.props.saveShowCompleted(e,this.state.id);
+        
     };
     handleChange = (e)=>{
         const value = e.target.value;
@@ -46,14 +49,15 @@ class DisplayTasks extends Component{
     componentDidMount(){
         this.setState(()=>({
             descriptionValue: this.props.description,
-            id: this.props.id
+            id: this.props.id,
+            completed: this.props.completed
         }));
     };
     render(){
         const {showDescription,completed,descriptionValue,noEditMode} = this.state;
         const {description}=this.props;
         const tododescription = descriptionValue !== "" ? descriptionValue : description ;
-        console.log("todo description",tododescription);
+        console.log("todo description",this.state);
         return(
             <div
                 style={{overflow: "hidden"}}

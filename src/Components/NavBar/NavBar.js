@@ -9,7 +9,8 @@ class Navbar extends Component {
 		showModal: false,
 		taskName: "",
 		taskDescription: "",
-	}
+	    completed:false
+	};
 	addTaskAfterValidation = ()=>{
 		const {addTaskFunc} = this.props;
 		console.log("check status", this.state)
@@ -53,13 +54,13 @@ class Navbar extends Component {
 				</div>
 				{ showModal ? <Modal>
 					 <div className="ModalContent">
-					 <AddTask 
+					 <AddTask
 							onChangeInputBoxFunc = {this.getTaskName}
 							onChangeTextAreaFunc={this.getTaskDesc}
 					 />
 					 <div className="flexBoxInline alignIntems justifyingContentEnd">
 					     <Button onclickFunc={this.onCloseFunc}>Cancel</Button>
-							 <Button   
+							 <Button
 							 		background="green"
 							    hoverBackground="blue"
 							    onclickFunc={this.addTaskAfterValidation}

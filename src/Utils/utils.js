@@ -6,9 +6,10 @@ const dateCreation = () => {
 
 const mergeStateToObjects = (state, valueOne, valueTwo) => {
 	const currentDateAndTime = dateCreation();
+	const stateCompleted = state.completed ? true : false;
 	return {
 		id: geneateID(),
-		completed: false,
+		completed: stateCompleted ,
 		[valueOne]: state.taskName,
 		[valueTwo]: state.taskDescription,
 		created: currentDateAndTime
