@@ -5,7 +5,7 @@ import Loadable from 'react-loadable';
 import './NavBar.css';
 
 const  LoadableModal = Loadable({
-	loader: ()=>import("../AddButtonForm/AddButtonForm"),
+	loader: ()=>import(/* webpackPrefetch: true */ "../AddButtonForm/AddButtonForm"),
 	loading: ()=><div>Loading.....</div> ,
 });
 
@@ -38,13 +38,13 @@ class Navbar extends Component {
 			}));
 	 };
   // add task buttton functionality by clicking model opens .
-  addTaskFunc = (e)=>{
+  addTaskFunc = ()=>{
   	this.setState(()=>({
 	    showModal:true
   	}));
 	};
    // close function of the modal
-	onCloseFunc = (e)=>{
+	onCloseFunc = ()=>{
 		this.setState(()=>({
 				showModal:false
 		}));
@@ -68,7 +68,7 @@ class Navbar extends Component {
 			</Fragment>
 		);
 	}
-};
+}
 export default Navbar;
 Navbar.propTypes = {
 	addTaskFunc: PropTypes.func.isRequired,

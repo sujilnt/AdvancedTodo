@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Loadable from 'react-loadable';
 
 const LoadableBar = Loadable({
-    loader: () => import('./EditMode/EditMode'),
+    loader: () => import(/* webpackPrefetch: true */ './EditMode/EditMode'),
     loading() {
         return <div>Loading...</div>
     }
@@ -21,10 +21,10 @@ class DisplayTasks extends Component{
     // showDescription -> shoe Description display the description.
     showDescription=(e)=>{
         const {id} = this.state;
-        this.props.showDescription(e,this.state.id);
+        this.props.showDescription(e,id);
     };
     // onsave -> save the data and writing to localstorage.
-    onsave = (e)=>{
+    onsave = ()=>{
         const {id,name} = this.props;
         const {descriptionValue,completed} =this.state;
         console.log("e",this.props, this.state);
@@ -50,12 +50,12 @@ class DisplayTasks extends Component{
     // handleChange -> saving the description Value.
     handleChange = (e)=>{
         const value = e.target.value;
-        this.setState((prev)=>({
+        this.setState(()=>({
             descriptionValue: value
         }));
     };
     // onEditMode -> toggling Edit Mode.
-    onEditMode = (e)=>{
+    onEditMode = ()=>{
         this.setState(()=>({
             noEditMode: false
         }));
