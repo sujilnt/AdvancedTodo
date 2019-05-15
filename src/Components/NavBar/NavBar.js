@@ -1,15 +1,12 @@
 import PropTypes from "prop-types";
 import React, { Component,Fragment } from 'react';
-//import Modal from "../Modal/Modal";
-import AddTask from "../AddTask/AddTask.js";
-import Button from "../Button/Button";
 import _ from "../../Utils/utils";
 import Loadable from 'react-loadable';
 import './NavBar.css';
 
 const  LoadableModal = Loadable({
-	loader: () => import("../Modal/Modal.js"),
-	loading: ()=><div>Loading.....</div>
+	loader: ()=>import("../AddButtonForm/AddButtonForm"),
+	loading: ()=><div>Loading.....</div> ,
 });
 
 class Navbar extends Component {
@@ -60,23 +57,13 @@ class Navbar extends Component {
 				<div className="heading">Todo App</div>
 				<div className="addButton" onClick ={this.addTaskFunc}>add task</div>
 				</div>
-				{ showModal ? <LoadableModal>
-					 <div className="ModalContent">
-					 <AddTask
-							onChangeInputBoxFunc = {this.getTaskName}
-							onChangeTextAreaFunc={this.getTaskDesc}
-					 />
-					 <div className="flexBoxInline alignIntems justifyingContentEnd">
-					     <Button onclickFunc={this.onCloseFunc}>Cancel</Button>
-							 <Button
-							 		background="green"
-							    hoverBackground="blue"
-							    onclickFunc={this.addTaskAfterValidation}
-							    >Add Task </Button>
-					 </div>
-					 
-					 </div>
-					</LoadableModal>
+				{ showModal ?
+					<LoadableModal
+						getTaskName={this.getTaskName}
+						getTaskDesc={this.getTaskDesc}
+						onCloseFunc={this.onCloseFunc}
+						addTaskAfterValidation={this.addTaskAfterValidation}
+					/>
 					:"" }
 			</Fragment>
 		);

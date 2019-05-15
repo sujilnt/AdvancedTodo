@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import React,{Component} from "react";
-
+import React from "react";
+import "./TextArea.css";
 const TextArea =(props)=>{
     const {name,labelText,onhandleChange ,defaultValue,noEditMode}=props;
     return noEditMode ?
