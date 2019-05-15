@@ -1,7 +1,14 @@
 import React,{Component} from "react";
 import "./DipalayTasks.css";
-import TextArea from "../TextArea/TextArea.js";
 import PropTypes from 'prop-types';
+import Loadable from 'react-loadable';
+
+const LoadableBar = Loadable({
+    loader: () => import('./EditMode/EditMode'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
 
 class DisplayTasks extends Component{
     state={
@@ -80,33 +87,15 @@ class DisplayTasks extends Component{
                   <div className="captialize textoverflow" style={{width: "90%"}}>{this.props.name}</div>
               </header>
               {this.props.show ?
-                <div
-                  className="areaContainer"
-                >
-                <div  className="flexBoxInline justifyingContentBetween">
-                     <span className="cssbeautify">Description</span>
-                     <span>
-                        <span
-                             onClick={this.onEditMode}
-                             className="spanstylesRed"
-                             key={"EditMode"}
-                             >Edit✍</span>
-                        <span
-                            onClick={this.onsave}
-                            key={"saveMode"}
-                            className="spanstylesGreen"
-                            style={noEditMode ?
-                                {pointerEvents:"none", cursor: "not-allowed"}:{}}>Save ✉</span>
-                     </span>
-                
-                </div>
-                <TextArea
-                    onhandleChange={this.handleChange}
-                    defaultValue={this.props.description}
-                    value={descriptionValue}
-                    noEditMode={noEditMode}
-                  >{tododescription}</TextArea>
-                  </div>
+                    <LoadableBar
+                        handleChange={this.handleChange}
+                        tododescription={tododescription}
+                        descriptionValue={descriptionValue}
+                        noEditMode={noEditMode}
+                        description={description}
+                        onEditMode={this.onEditMode}
+                        onSave={this.onsave}
+                    />
                 : "" }
             </div>
         );
