@@ -13,6 +13,7 @@ class TodoContainer extends Component {
 		currentId: '',
 		show:false
 	};
+	// deleteTodoTask -> deleting function to delete the particular task
 	deleteTodoTask =(id)=>{
 	   	const data =this.state.data.filter((row)=>row.id !== id);
 		_.setItemInStorage('taskslist', [...data]);
@@ -20,7 +21,7 @@ class TodoContainer extends Component {
 			data: [...data]
 		}));
 	};
-	// saving completed Tasks
+	// saveShowCompleted -> function to save completed Tasks
 	saveShowCompleted =(e,id)=>{
 		console.log(id);
 		const data = this.state.data.map((obj)=>{
@@ -38,7 +39,7 @@ class TodoContainer extends Component {
 			data: [...data]
 		}));
 	};
-	// show Description Functionality
+	// showDescription -> show Description Functionality
 	showDescription =(e,id)=>{
 	  	if(id){
 		    this.setState((prev)=>({
@@ -83,7 +84,7 @@ class TodoContainer extends Component {
 		}));
 	};
 
-	//addTodo Posts functionality
+	// addDataFunction-> function addTodo Posts functionality
 	addDataFunction = (e) => {
 		_.setItemInStorage('taskslist', [ ...this.state.data, e ]);
 		this.setState((prev) => {
@@ -93,7 +94,7 @@ class TodoContainer extends Component {
 		});
 	};
 
-	// generate tasks
+	// generateTasks -> generate tasks
 	generateTasks = () => {
 		const {currentId} =this.state;
 		const listofTasks = [];
