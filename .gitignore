@@ -49,6 +49,7 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 ehthumbs.db
+workspace.xml
 
 # Windows shortcuts #
 #####################
