@@ -60,6 +60,12 @@ class DisplayTasks extends Component{
             noEditMode: false
         }));
     };
+    
+    deleteFunction = (e)=>{
+        e.stopPropagation();
+        console.log("dele button clicked ",this.state);
+        this.props.deleteTodoTask(this.state.id);
+    };
    
     componentDidMount(){
         // updating the  state {id,completed,description } from the Props
@@ -84,7 +90,10 @@ class DisplayTasks extends Component{
                   onClick={this.showDescription}
                    style={completed ? {opacity:"0.5"}: {opacity:1}}
                    className="taskHeader">
-                  <div className="captialize textoverflow" style={{width: "90%"}}>{this.props.name}</div>
+                  <div className="captialize textoverflow" style={{width: "90%"}}>
+                      {this.props.name}
+                      <span className="delete-button" onClick={this.deleteFunction}>Delete</span>
+                  </div>
               </header>
               {this.props.show ?
                     <LoadableBar

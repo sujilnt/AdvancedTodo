@@ -35,3 +35,7 @@ body {
 .justifyingContentBetween {
 	justify-content: space-between;
 }
+
+.overflow{
+	overflow: hidden;
+}

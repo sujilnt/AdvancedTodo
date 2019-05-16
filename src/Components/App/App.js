@@ -4,7 +4,7 @@ import TodoContainer from '../TodoContainer/TodoContainer';
 // App ->Main Component
 const App = () => {
 	return (
-		<div><TodoContainer/></div>
+		<div className="overflow"><TodoContainer/></div>
 		);
 };
 export default App;

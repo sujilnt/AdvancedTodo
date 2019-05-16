@@ -3,6 +3,7 @@
 	padding: 10px;
 	margin-left: 55px;
 	margin-bottom: 5px;
+	position: relative;
 }
 
 .taskHeader,
@@ -62,4 +63,16 @@
 .textoverflow{
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.delete-button{
+	position: absolute;
+	left: 84%;
+	z-index: 100;
+	padding: 10px 8px;
+	background: red;
+	top: 0;
+}
+.delete-button:hover{
+	background:blue;
 }

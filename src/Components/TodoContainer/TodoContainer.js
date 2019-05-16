@@ -13,6 +13,13 @@ class TodoContainer extends Component {
 		currentId: '',
 		show:false
 	};
+	deleteTodoTask =(id)=>{
+	   	const data =this.state.data.filter((row)=>row.id !== id);
+		_.setItemInStorage('taskslist', [...data]);
+		this.setState(()=>({
+			data: [...data]
+		}));
+	};
 	// saving completed Tasks
 	saveShowCompleted =(e,id)=>{
 		console.log(id);
@@ -103,6 +110,7 @@ class TodoContainer extends Component {
 					showDescription={this.showDescription}
 					completed={obj.completed}
 					saveShowCompleted={this.saveShowCompleted}
+					deleteTodoTask={this.deleteTodoTask}
 				/>
 			);
 		});
