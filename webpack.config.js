@@ -10,9 +10,12 @@ module.exports = ({mode,presets}={mode:"production", presets:[]})=>{
 		{
 			mode,
 			output:{
-				filename: "main.js",
+				filename: "./main.js",
 			},
-			plugins: [new HtmlWebpackPlugin({ template: path.resolve('./index.html') }),new webpack.ProgressPlugin()]
+			plugins: [
+				new HtmlWebpackPlugin({ template: path.resolve('./index.html') }),
+				new webpack.ProgressPlugin()
+			]
 		},
 		modeConfig(mode));
 };

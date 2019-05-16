@@ -1,14 +1,13 @@
 const path = require('path');
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports=()=>({
 	mode:"development",
+	devtool: "eval-source-map",
 	entry: './index.js',
 	output: {
 		filename: 'main.js',
-		path: path.resolve(__dirname, 'dist')
 	},
 	
 	resolve: {
@@ -40,5 +39,8 @@ module.exports=()=>({
 			}
 		]
 	},
-	plugins: [ new HtmlWebpackPlugin({ template: path.resolve('./index.html') }), new webpack.ProgressPlugin(), new MiniCssExtractPlugin() ]
+	plugins: [
+		new MiniCssExtractPlugin() ,
+		new BundleAnalyzerPlugin()
+	]
 });

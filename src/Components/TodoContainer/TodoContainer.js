@@ -41,7 +41,7 @@ class TodoContainer extends Component {
 	    }
 	};
 	// clearData - > clears the data.
-	clearData = (e) => {
+	clearData = () => {
 		_.setItemInStorage('taskslist', []);
 		this.setState(() => ({
 			data: []
@@ -49,7 +49,7 @@ class TodoContainer extends Component {
 	};
     // updating data from the local storage
 	componentDidMount() {
-		const tasklist = _.getItemStorage('taskslist');
+		const tasklist = _.getItemStorage('taskslist') || [];
 		this.state.data.length === 0
 			? this.setState(() => ({
 					data: tasklist
@@ -110,9 +110,9 @@ class TodoContainer extends Component {
 	};
 	render() {
 		const { data } = this.state;
-		const total = data ? data.length : 0;
+		const total = data && data[0] ? data.length : 0;
 		const completeNumber = data ? data.filter((obj) => obj.completed === true).length : 0;
-		const incompleted = total - completeNumber;
+		const incompleted = total - completeNumber || 0;
 		return (
 			<div className="appContainer">
 				<Navbar addTaskFunc={this.addDataFunction} />

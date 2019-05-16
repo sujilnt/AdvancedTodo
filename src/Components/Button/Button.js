@@ -19,12 +19,12 @@ const ButtonStyle = styled.div`
 	}
 `;
 const Button = (props) => {
-	const { name, onclickFunc,hoverBackground,background } = props;
+	const { onclickFunc,hoverBackground,background } = props;
 	return (
 		<Fragment>
-			<ButtonStyle 
-				className="buttonStyle" 
-				onClick={onclickFunc} 
+			<ButtonStyle
+				className="buttonStyle"
+				onClick={onclickFunc}
 				hoverBackground={hoverBackground}
 				background={background}
 				>
