@@ -22,6 +22,10 @@ body {
 	flex-wrap: wrap;
 }
 
+.columnalignment{
+	flex-direction: column;
+}
+
 .justifyingContent {
 	justify-content: center;
 }

@@ -12,11 +12,10 @@ const LoadableBar = Loadable({
 
 class DisplayTasks extends Component{
     state={
-     showDescription: false,
       completed:false,
-     descriptionValue: "",
-     noEditMode: true,
-     id: ""
+      descriptionValue: "",
+      noEditMode: true,
+      id: ""
     };
     // showDescription -> shoe Description display the description.
     showDescription=(e)=>{
@@ -82,6 +81,7 @@ class DisplayTasks extends Component{
         return(
             <div
                 style={{overflow: "hidden"}}
+                className="flexBoxInline columnalignment"
             >
               <div
                   onClick={this.showCompleted}
@@ -92,7 +92,7 @@ class DisplayTasks extends Component{
                    className="taskHeader">
                   <div className="captialize textoverflow" style={{width: "90%"}}>
                       {this.props.name}
-                      <span className="delete-button" onClick={this.deleteFunction}>Delete</span>
+                      <span className="delete-button" onClick={this.deleteFunction}>delete 🗑</span>
                   </div>
               </header>
               {this.props.show ?

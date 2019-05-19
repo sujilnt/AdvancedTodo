@@ -2,7 +2,6 @@
 	width: 97.2%;
 	padding: 10px;
 	margin-left: 55px;
-	margin-bottom: 5px;
 	position: relative;
 }
 
@@ -18,7 +17,7 @@
 	z-index: 2;
 	position: absolute;
 	margin: 0px 0px;
-	padding: 9px 20px;
+	padding: 12px 20px;
 }
 
 .areaContainer {
@@ -67,12 +66,14 @@
 
 .delete-button{
 	position: absolute;
-	left: 84%;
+	left: 82%;
 	z-index: 100;
-	padding: 10px 8px;
-	background: red;
-	top: 0;
+	background: #6b0303;
 }
 .delete-button:hover{
-	background:blue;
+	background:red;
+}
+
+*{
+	position:relative;
 }
