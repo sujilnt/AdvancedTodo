@@ -6,7 +6,7 @@ import Loadable from 'react-loadable';
 const LoadableBar = Loadable({
     loader: () => import(/* webpackPrefetch: true */ './EditMode/EditMode'),
     loading() {
-        return <div>Loading...</div>
+        return <div className={"loader"}>Loading...</div>
     }
 });
 

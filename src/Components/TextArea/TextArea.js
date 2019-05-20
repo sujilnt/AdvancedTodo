@@ -22,7 +22,7 @@ const TextArea =(props)=>{
             >
             
             </textarea>
-            <label htmlFor={name} className="form__label justifyTextandDecreseFont">{labelText}</label>
+            <label htmlFor={name} className="form__label">{labelText}</label>
         </div>);
 };
 

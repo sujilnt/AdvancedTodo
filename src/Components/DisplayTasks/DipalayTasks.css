@@ -90,3 +90,11 @@
 *{
 	position:relative;
 }
+
+.loader{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	width: 95%;
+}

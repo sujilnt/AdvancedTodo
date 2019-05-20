@@ -6,7 +6,7 @@ import './NavBar.css';
 
 const  LoadableModal = Loadable({
 	loader: ()=>import(/* webpackPrefetch: true */ "../AddButtonForm/AddButtonForm"),
-	loading: ()=><div>Loading.....</div> ,
+	loading: ()=><div className="addButtonLoader">Loading.....</div> ,
 });
 
 class Navbar extends Component {
