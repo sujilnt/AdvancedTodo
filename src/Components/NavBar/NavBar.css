@@ -17,7 +17,7 @@
 	margin: 0 1em;
 	padding: 0.25em 1em;
 	cursor:pointer;
-	transition:background 1s
+	transition:background 1s;
 }
 
 .addButton:hover{
