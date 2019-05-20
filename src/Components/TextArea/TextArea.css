@@ -72,3 +72,14 @@ label,
     padding-bottom: 6px;
     border-bottom: 2px solid #b1ea1f;
 }
+
+.justifyTextandDecreseFont{
+    text-align: justify;
+    font-size: 14px;
+}
+.justifyTextandDecreseFont::first-letter{
+    text-transform: capitalize;
+    font-size: 20px;
+    margin-left: 15px;
+    font-weight: bold;
+}

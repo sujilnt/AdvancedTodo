@@ -4,7 +4,7 @@ import "./TextArea.css";
 const TextArea =(props)=>{
     const {name,labelText,onhandleChange ,defaultValue,noEditMode}=props;
     return noEditMode ?
-        (<div className="form__group">
+        (<div className="form__group justifyTextandDecreseFont">
             <label htmlFor={name} className="form__label">{labelText}</label>
             <div>{defaultValue}</div>
         </div>)
@@ -22,7 +22,7 @@ const TextArea =(props)=>{
             >
             
             </textarea>
-            <label htmlFor={name} className="form__label">{labelText}</label>
+            <label htmlFor={name} className="form__label justifyTextandDecreseFont">{labelText}</label>
         </div>);
 };
 

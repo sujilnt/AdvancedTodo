@@ -21,7 +21,7 @@
 }
 
 .areaContainer {
-	margin: 19px 24px 30px 25px;
+	margin: 19px 66px 30px 25px;
 	cursor: pointer;
 	animation: fadeIN 1.5s;
 }
@@ -63,12 +63,25 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-
+/*
 .delete-button{
 	position: absolute;
 	left: 82%;
 	z-index: 100;
 	background: #6b0303;
+}*/
+
+
+.delete-button{
+	margin-right: 50px;
+	padding: 2px 8px;
+	background: #6b0303;
+}
+.flexDeleteButton{
+	display: flex;
+	justify-content: space-between;
+	margin-right: 15px;
+	align-items: center;
 }
 .delete-button:hover{
 	background:red;

@@ -90,8 +90,8 @@ class DisplayTasks extends Component{
                   onClick={this.showDescription}
                    style={completed ? {opacity:"0.5"}: {opacity:1}}
                    className="taskHeader">
-                  <div className="captialize textoverflow" style={{width: "90%"}}>
-                      {this.props.name}
+                  <div className="flexDeleteButton " >
+                      <span className="captialize textoverflow">{this.props.name}</span>
                       <span className="delete-button" onClick={this.deleteFunction}>delete 🗑</span>
                   </div>
               </header>
