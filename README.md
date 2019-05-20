@@ -15,7 +15,7 @@
 
 ### `Published Url & Image`
 
-![alt text]("https://github.com/sujilnt/AdvancedTodo/blob/master/assets/AdvancedTodo.PNG")
+![alt text](https://github.com/sujilnt/AdvancedTodo/blob/master/assets/AdvancedTodo.PNG)
 
  
   
