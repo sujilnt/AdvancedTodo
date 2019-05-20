@@ -14,8 +14,8 @@
 <hr/> 
 
 ### `Published Url & Image`
-url - `https://sujilnt.github.io/AdvancedTodo/` <br/>
-``
+<a href="https://sujilnt.github.io/AdvancedTodo/" >Working url - </a> `https://sujilnt.github.io/AdvancedTodo/` <br/>
+
 ![alt text](https://github.com/sujilnt/AdvancedTodo/blob/master/assets/AdvancedTodo.PNG)
 
  <hr/>
