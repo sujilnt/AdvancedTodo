@@ -14,19 +14,17 @@
 <hr/> 
 
 ### `Published Url & Image`
-
+url - `https://sujilnt.github.io/AdvancedTodo/` <br/>
+``
 ![alt text](https://github.com/sujilnt/AdvancedTodo/blob/master/assets/AdvancedTodo.PNG)
 
- 
-  
-  
-  
+ <hr/>
   
 
+### `Running App`
+For development - `yarn run dev` <br/>
+For Production - `yarn run prod` <br/>
+For Deploy and Publish - `yarn run publish`
 
-# Running App
- 
-`yarn run start`
-
-# url
+### `localHost` 
 `http://localhost:8080/`
