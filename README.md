@@ -7,13 +7,16 @@
  ### `Languages and Framework Used`<br/>
   1) Javascript - ES6 . <br/>
   2) Vanilla Css - Css FlexBox. <br/>
-  3) React.js and ReactLodable, All components are custom made `without any library`.  <br/>
+  3) React.js and ReactLodable, `All components are custom made without any library`.  <br/>
   4) babel and Webpack. <br/>
   5) Google developer Tool -  show coverage tool.
 
 <hr/> 
- `Image Of the APP`
- 
+
+### `Published Url & Image`
+
+![alt text]("https://github.com/sujilnt/AdvancedTodo/blob/master/assets/AdvancedTodo.PNG")
+
  
   
   
