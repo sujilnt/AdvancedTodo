@@ -26,6 +26,8 @@ For development - `yarn run dev` <br/>
 For Production - `yarn run prod` <br/>
 For Deploy and Publish - `yarn run publish`
 
+<hr/>
+
 ### `localHost` 
 `http://localhost:8080/`
 
